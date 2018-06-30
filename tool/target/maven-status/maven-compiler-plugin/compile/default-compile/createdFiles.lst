@@ -1,0 +1,8 @@
+com\zzdx\tool\BeetlTool.class
+com\zzdx\tool\codegenerator\GenerateModel.class
+com\zzdx\tool\codegenerator\GenerateCode.class
+com\zzdx\tool\domain\Column.class
+com\zzdx\tool\codegenerator\CodeGenerator$CodeGeneratorHolder.class
+com\zzdx\tool\codegenerator\CodeGenerator$1.class
+com\zzdx\tool\codegenerator\CodeGenerator.class
+com\zzdx\tool\domain\Entity.class

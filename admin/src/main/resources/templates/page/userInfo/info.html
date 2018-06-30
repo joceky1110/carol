@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>用户表-查看-后台管理</title>
+	<meta name="renderer" content="webkit" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="stylesheet"  th:href="@{/layui/css/layui.css}" media="all" />
+	<link rel="stylesheet"  href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all" />
+	<link rel="stylesheet" th:href="@{/css/common.css}" media="all" />
+</head>
+<body class="childrenBody">
+    <div class="layui-main" style="margin-top:25px;">
+        <form class="layui-form"  style="width:60%;" th:object="${userInfo}"  >
+            <input type="hidden" name="id"  th:value="*{id}" />
+                <div class="layui-form-item">
+                            <label class="layui-form-label">用户名</label>
+                              <div class="layui-input-block">
+                             <input type="text" class="layui-input" id="name"  th:value="*{name}"  name="name" lay-verify="required" readonly="readonly" >
+                              </div>
+                </div>
+                <div class="layui-form-item">
+                            <label class="layui-form-label">头像</label>
+                              <div class="layui-input-block">
+                             <input type="text" class="layui-input" id="img"  th:value="*{img}"  name="img" lay-verify="" readonly="readonly" >
+                              </div>
+                </div>
+                <div class="layui-form-item">
+                            <label class="layui-form-label">城市</label>
+                              <div class="layui-input-block">
+                             <input type="text" class="layui-input" id="city"  th:value="*{city}"  name="city" lay-verify="" readonly="readonly" >
+                              </div>
+                </div>
+                <div class="layui-form-item">
+                           <label class="layui-form-label">性别</label>
+                                <div class="layui-input-block">
+                            <select name="sex"   id="sex" dict=""  th:attr="initValue=*{sex}"     lay-verify="" disabled="disabled"></select>
+                              </div>
+                </div>
+                <div class="layui-form-item">
+                          <label class="layui-form-label">注册时间</label>
+                               <div class="layui-input-block">
+                              <input type="text" class="layui-input date" id="registerTime"  th:value="*{registerTime}"  lay-verify="" name="registerTime" readonly="readonly" >
+                              </div>
+                </div>
+                <div class="layui-form-item">
+                </div>
+                <div class="layui-form-item">
+                            <label class="layui-form-label">等级</label>
+                              <div class="layui-input-block">
+                             <input type="text" class="layui-input" id="grade"  th:value="*{grade}"  name="grade" lay-verify="" readonly="readonly" >
+                              </div>
+                </div>
+                <div class="layui-form-item">
+                            <label class="layui-form-label">头衔</label>
+                              <div class="layui-input-block">
+                             <input type="text" class="layui-input" id="title"  th:value="*{title}"  name="title" lay-verify="" readonly="readonly" >
+                              </div>
+                </div>
+                <div class="layui-form-item">
+                          <label class="layui-form-label">出生日期</label>
+                               <div class="layui-input-block">
+                              <input type="text" class="layui-input date" id="birth"  th:value="*{birth}"  lay-verify="" name="birth" readonly="readonly" >
+                              </div>
+                </div>
+                <div class="layui-form-item">
+                            <label class="layui-form-label">手机</label>
+                              <div class="layui-input-block">
+                             <input type="text" class="layui-input" id="phone"  th:value="*{phone}"  name="phone" lay-verify="" readonly="readonly" >
+                              </div>
+                </div>
+                <div class="layui-form-item">
+                            <label class="layui-form-label">邮箱</label>
+                              <div class="layui-input-block">
+                             <input type="text" class="layui-input" id="email"  th:value="*{email}"  name="email" lay-verify="" readonly="readonly" >
+                              </div>
+                </div>
+                <div class="layui-form-item">
+                            <label class="layui-form-label">密码</label>
+                              <div class="layui-input-block">
+                             <input type="text" class="layui-input" id="password"  th:value="*{password}"  name="password" lay-verify="" readonly="readonly" >
+                              </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <a  class="layui-btn layui-btn-info" th:href="@{/page/userInfo}">返回</a>
+                    </div>
+                </div>
+        </form>
+    </div>
+    <script  type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+    <script  type="text/javascript" th:src="@{/static/js/dict}"></script>
+    <script  type="text/javascript" th:src="@{/js/common.js}"></script>
+    <script type="text/javascript"  th:src="@{/layui/layui.all.js}"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+package com.carol.model;
+
+import com.carol.model.common.BaseEntity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.util.*;
+/**
+ * ${entity.title}
+ * Generate By CodeGenerator
+ * @author wwb
+ */
+@Entity
+@Table(name="${entity.tableName}")
+public class ${entity.modelName} extends BaseEntity {
+
+   <%for(c in entity.columns){%>
+    /**
+     * ${c.title}
+     */
+   	@Column(name="${c.columnSql}",columnDefinition="${c.definition} COMMENT '${c.title}'"<%if(c.isNotNull=='是'){ %>,nullable=false<%}%>)
+   	private ${c.dataType} ${c.column};
+
+    <%}%>
+    <%for(c in entity.columns){%>
+    public ${c.dataType} get${c.upperColumn}(){
+        return this.${c.column};
+    }
+    public void set${c.upperColumn}(${c.dataType} ${c.column}){
+        this.${c.column}=${c.column};
+    }
+     <%}%>
+
+}

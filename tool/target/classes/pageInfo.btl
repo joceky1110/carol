@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>${entity.title}-查看-后台管理</title>
+	<meta name="renderer" content="webkit" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="stylesheet"  th:href="@{/layui/css/layui.css}" media="all" />
+	<link rel="stylesheet"  href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all" />
+	<link rel="stylesheet" th:href="@{/css/common.css}" media="all" />
+</head>
+<body class="childrenBody">
+    <div class="layui-main" style="margin-top:25px;">
+        <form class="layui-form"  style="width:60%;" th:object="\${${entityName}}"  >
+            <input type="hidden" name="id"  th:value="*{id}" />
+        <%for(c in entity.columns){%>
+                <div class="layui-form-item">
+                         <%if(c.inputType=='textarea&&c.show'){%>
+                            <label class="layui-form-label">${c.title}</label>
+                               <div class="layui-input-block">
+                               <textarea name="${c.column}" id="${c.column}" th:value="*{${c.column}}" class="layui-textarea" lay-verify="${c.validates}" readonly="readonly"></textarea>
+                            </div>
+                         <%}%>
+                         <%if(c.inputType=='input'&&c.show){%>
+                            <label class="layui-form-label">${c.title}</label>
+                              <div class="layui-input-block">
+                             <input type="text" class="layui-input" id="${c.column}"  th:value="*{${c.column}}"  name="${c.column}" lay-verify="${c.validates}" readonly="readonly" >
+                              </div>
+                         <%}%>
+                         <%if(c.inputType=='date'&&c.show){%>
+                          <label class="layui-form-label">${c.title}</label>
+                               <div class="layui-input-block">
+                              <input type="text" class="layui-input date" id="${c.column}"  th:value="*{${c.column}}"  lay-verify="${c.validates}" name="${c.column}" readonly="readonly" >
+                              </div>
+                           <%}%>
+                            <%if(c.inputType=='datetime'&&c.show){%>
+                             <label class="layui-form-label">${c.title}</label>
+                                <div class="layui-input-block">
+                                <input type="text" class="layui-input datetime" id="${c.column}" name="${c.column}"  lay-verify="${c.validates}" readonly="readonly">
+                                 </div>
+                            <%}%>
+                           <%if(c.inputType=='select'&&c.show){%>
+                           <label class="layui-form-label">${c.title}</label>
+                                <div class="layui-input-block">
+                            <select name="${c.column}"   id="${c.column}" dict="${c.columnRemark}"  th:attr="initValue=*{${c.column}}"     lay-verify="${c.validates}" disabled="disabled"></select>
+                              </div>
+                          <%}%>
+                </div>
+         <%}%>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <a  class="layui-btn layui-btn-info" th:href="@{/page/${entityName}}">返回</a>
+                    </div>
+                </div>
+        </form>
+    </div>
+    <script  type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+    <script  type="text/javascript" th:src="@{/static/js/dict}"></script>
+    <script  type="text/javascript" th:src="@{/js/common.js}"></script>
+    <script type="text/javascript"  th:src="@{/layui/layui.all.js}"></script>
+    <script type="text/javascript"  th:src="@{/js/config.js}"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>专栏文章表-新增-后台管理</title>
+	<meta name="renderer" content="webkit" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="stylesheet"  th:href="@{/layui/css/layui.css}" media="all" />
+	<link rel="stylesheet"  href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all" />
+	<link rel="stylesheet" th:href="@{/css/common.css}" media="all" />
+</head>
+<style type="text/css">
+    .layui-upload-img {
+        width: 92px;
+        height: 92px;
+        margin: 0 10px 10px 0;
+    }
+</style>
+<body class="childrenBody">
+    <div class="layui-main" style="margin-top:25px;">
+        <form class="layui-form"  style="width:60%;"  method="post" id="addForm" enctype="text/plain">
+            <input type="hidden" name="token" id="qiniuToken" value="" />
+                <div class="layui-form-item">
+                            <label class="layui-form-label">标题</label>
+                              <div class="layui-input-block">
+                             <input type="text" class="layui-input" id="title"   name="title" lay-verify="required" >
+                              </div>
+                </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">标签</label>
+                <div class="layui-input-block" id="labelDiv"></div>
+                <script id="label-template" type="text/html">
+                    {{#  layui.each(d, function(index, item){ }}
+                    <input type="checkbox" name="label" title="{{item.labelName}}" code="{{item.labelCode}}" th:data="*{labelCode}">
+                    {{#  }); }}
+                </script>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">内容</label>
+                <div class="layui-input-block">
+                    <textarea id="editor_id" name="content" lay-verify="required"></textarea>
+                </div>
+            </div>
+        </form>
+
+            <div class="layui-form-item">
+                <div class="layui-upload">
+                <label class="layui-form-label"><button class="layui-btn layui-btn-warm" id="coverImg">选择封面</button></label>
+                <!--<img src="http://pb2y688rw.bkt.clouddn.com/FlSHfnga5zTAuIp_qqz7amYD0StC" width="300">-->
+                <div class="layui-upload-list">
+                <img class="layui-upload-img" id="demo1">
+                <p id="demoText"></p>
+                </div>
+                </div>
+            </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">摘要</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" id="summary"   name="title" lay-verify="required" >
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="add">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        <a  class="layui-btn layui-btn-info" th:href="@{/page/article}">返回</a>
+                    </div>
+                </div>
+
+
+        <!--<div class="layui-upload">-->
+            <!--<button type="button" class="layui-btn" id="test1">上传图片</button>-->
+            <!--<div class="layui-upload-list">-->
+                <!--<img class="layui-upload-img" id="demo1">-->
+                <!--<p id="demoText"></p>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+    </div>
+    <script  type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+    <script  type="text/javascript" th:src="@{/static/js/dict}"></script>
+    <script  type="text/javascript" th:src="@{/js/common.js}"></script>
+    <script type="text/javascript"  th:src="@{/layui/layui.all.js}"></script>
+    <script type="text/javascript"  th:src="@{/js/config.js}"></script>
+    <script type="text/javascript"  th:src="@{/kindeditor/kindeditor-all.js}"></script>
+    <!--<script type="text/javascript"  th:src="@{/kindeditor/plugins/image/image.js}"></script>-->
+    <script type="text/javascript"  th:src="@{/js/article/add.js}"></script>
+</body>
+</html>

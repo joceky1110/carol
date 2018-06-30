@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>用户表-后台管理</title>
+	<meta name="renderer" content="webkit" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="stylesheet"  th:href="@{/layui/css/layui.css}" media="all" />
+	<link rel="stylesheet"  href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all" />
+	<link rel="stylesheet" th:href="@{/css/common.css}" media="all" />
+</head>
+<body class="childrenBody">
+<style type="text/css">
+	.laytable-cell-1-babies {
+		height: 100%;
+	}
+</style>
+<div >
+<blockquote class="layui-elem-quote">
+	<div class="layui-inline">
+		<a class="layui-btn" th:href="@{/page/userInfo/add}">新增</a>
+	</div>
+	<form class="layui-inline" id="searchForm">
+		<div class="layui-input-inline">
+			<label class="layui-form-label">用户名</label>
+			<div class="layui-input-block">
+			   		<input type="text"  id="Q_name_like_String" name="Q_name_like_String"  class="layui-input">
+			</div>
+		</div>
+		<button class="layui-btn" data-type="reload" type="button"><i class="layui-icon layui-icon-search"></i></button>
+	</form>
+</blockquote>
+	<script type="text/html" id="bar" lay-filter="test" >
+		<a class="layui-btn layui-btn-xs" lay-event="detail">查看</a>
+		<a class="layui-btn layui-btn-xs" lay-event="edit"><i class="layui-icon layui-icon-edit"></i></a>
+		<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon">&#xe640;</i></a>
+	</script>
+<table class="layui-table" id="dataTable" lay-size="sm" lay-filter="table"></table>
+
+<script type="text/html" id="babyTpl">
+	<ul>
+		{{#  layui.each(d.babies, function(index, item){ console.log(item);}}
+		<li>
+			<a href="/?table-demo-id={{d.id}}" class="layui-table-link" target="_blank">{{ item.name }}</a>
+		</li>
+		{{#  }); }}
+	</ul>
+</script>
+
+<script type="text/html" id="sexTpl">
+	{{#  if(d.sex === '女'){ }}
+	<span style="color: #F581B1;">{{ d.sex }}</span>
+	{{#  } else { }}
+	{{ d.sex }}
+	{{#  } }}
+</script>
+
+<span id="page"></span>
+</div>
+<script  type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<script type="text/javascript"  th:src="@{/layui/layui.all.js}"></script>
+<script  th:src="@{/static/js/dict}"></script>
+<script  th:src="@{/js/common.js}"></script>
+<script type="text/javascript"  th:src="@{/js/userInfo/index.js}"></script>
+</body>
+</html>

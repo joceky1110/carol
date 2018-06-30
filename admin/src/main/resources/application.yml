@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  thymeleaf:
+    cache: false
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/carol
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+#jpa
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
