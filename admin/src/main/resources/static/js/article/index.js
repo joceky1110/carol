@@ -52,7 +52,8 @@ $('#searchForm .layui-btn').on('click', function(){
      var data = obj.data //获得当前行数据
      ,layEvent = obj.event; //获得 lay-event 对应的值
      if(layEvent === 'detail'){
-       location.href="/page/article/info?id="+data.id;
+         window.open("/page/article/show?id="+data.id)
+       // location.href="/page/article/show?id="+data.id;
      } else if(layEvent === 'del'){
        layer.confirm('确定删除？', function(index){
             layer.close(index);

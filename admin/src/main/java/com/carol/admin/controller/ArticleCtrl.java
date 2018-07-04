@@ -116,4 +116,11 @@ public class ArticleCtrl extends BaseCtrl<Article>{
         }
         return super.delete(filter);
     }
+
+    @RequestMapping("/page/article/show")
+    public String show(String id,Model model) {
+        Article article = service.get(id);
+        model.addAttribute("article",article);
+        return "page/article/article_content";
+    }
 }

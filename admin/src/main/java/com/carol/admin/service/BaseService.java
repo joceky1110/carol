@@ -29,11 +29,11 @@ public abstract class BaseService<T> {
         JsonResult jsonResult = new JsonResult();
         try{
             baseDao.save(t);
-            jsonResult.setObj(t);
+            jsonResult.setData(t);
             jsonResult.setMsg("保存成功");
-            jsonResult.setSuccess(true);
+            jsonResult.setSuccess();
         }catch (Exception e){
-            jsonResult.setSuccess(false);
+            jsonResult.setCode(-1);
             jsonResult.setMsg(e.getMessage());
         }
         return  jsonResult;
@@ -48,9 +48,9 @@ public abstract class BaseService<T> {
         JsonResult jsonResult = new JsonResult();
         try{
             baseDao.update(t);
-            jsonResult.setObj(t);
+            jsonResult.setData(t);
         }catch (Exception e){
-            jsonResult.setSuccess(false);
+            jsonResult.setCode(-1);
             jsonResult.setMsg(e.getMessage());
         }
         return  jsonResult;

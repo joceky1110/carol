@@ -19,8 +19,7 @@ $(function () {
         ,tabDelete: function(othis){
           //删除指定Tab项
           element.tabDelete('xbs_tab', '44'); //删除：“商品管理”
-          
-          
+
           othis.addClass('layui-btn-disabled');
         }
         ,tabChange: function(id){
@@ -88,7 +87,7 @@ $(function () {
 
     //左侧菜单效果
     // $('#content').bind("click",function(event){
-    $('.left-nav #nav li').click(function (event) {
+    $('.left-nav #nav dd').click(function (event) {
 
         if($(this).children('.sub-menu').length){
             if($(this).hasClass('open')){
@@ -108,7 +107,7 @@ $(function () {
 
             var url = $(this).children('a').attr('_href');
             var title = $(this).find('cite').html();
-            var index  = $('.left-nav #nav li').index($(this));
+            var index  = $('.left-nav #nav dd').index($(this));
 
             for (var i = 0; i <$('.x-iframe').length; i++) {
                 if($('.x-iframe').eq(i).attr('tab-id')==index+1){

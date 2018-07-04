@@ -42,68 +42,89 @@
 <!-- 左侧菜单开始 -->
 <div class="left-nav" style="background: #393D49">
 	<div id="side-nav">
-		<ul id="nav">
-		<!--	<li>-->
-				<!--<a href="javascript:;">
-					<i class="iconfont">&#xe6b8;</i>
-					<cite>系统管理</cite>
-					<i class="iconfont nav_right">&#xe697;</i>
-				</a>-->
-				<ul class="sub-menu">
-					<li>
-						<a _href="/page/userInfo">
-							<i class="iconfont">&#xe6a7;</i>
-							<cite>用户管理</cite>
-						</a>
-					</li >
-					<li>
-						<a _href="/page/readRecord">
-							<i class="iconfont">&#xe6a7;</i>
-							<cite>悦读记录</cite>
+		<!--<ul id="nav">-->
+		<!--&lt;!&ndash;	<li>&ndash;&gt;-->
+				<!--&lt;!&ndash;<a href="javascript:;">-->
+					<!--<i class="iconfont">&#xe6b8;</i>-->
+					<!--<cite>系统管理</cite>-->
+					<!--<i class="iconfont nav_right">&#xe697;</i>-->
+				<!--</a>&ndash;&gt;-->
+				<!--<ul class="sub-menu">-->
+					<!--<li>-->
+						<!--<a _href="/page/userInfo">-->
+							<!--<i class="iconfont">&#xe6a7;</i>-->
+							<!--<cite>用户管理</cite>-->
+						<!--</a>-->
+					<!--</li >-->
+					<!--<li>-->
+						<!--<a _href="/page/readRecord">-->
+							<!--<i class="iconfont">&#xe6a7;</i>-->
+							<!--<cite>悦读记录</cite>-->
 
-						</a>
-					</li>
-					<li>
-						<a _href="/page/readLabel">
-							<i class="iconfont">&#xe6a7;</i>
-							<cite>悦读标签管理</cite>
+						<!--</a>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<a _href="/page/readLabel">-->
+							<!--<i class="iconfont">&#xe6a7;</i>-->
+							<!--<cite>悦读标签管理</cite>-->
 
-						</a>
-					</li>
+						<!--</a>-->
+					<!--</li>-->
 
-					<li>
-						<a _href="/page/article">
-							<i class="iconfont">&#xe6a7;</i>
-							<cite>专栏管理</cite>
+					<!--<li>-->
+						<!--<a _href="/page/article">-->
+							<!--<i class="iconfont">&#xe6a7;</i>-->
+							<!--<cite>专栏管理</cite>-->
 
-						</a>
-					</li>
+						<!--</a>-->
+					<!--</li>-->
 
-					<li>
-						<a _href="/page/dstDeptInfo">
-							<i class="iconfont">&#xe6a7;</i>
-							<cite>运营管理</cite>
+					<!--<li>-->
+						<!--<a _href="/page/dstDeptInfo">-->
+							<!--<i class="iconfont">&#xe6a7;</i>-->
+							<!--<cite>运营管理</cite>-->
 
-						</a>
-					</li>
+						<!--</a>-->
+					<!--</li>-->
 
-					<li>
-						<a _href="/page/dstPatient">
-							<i class="iconfont">&#xe6a7;</i>
-							<cite>系统管理</cite>
+					<!--<li>-->
+						<!--<a _href="/page/dstPatient">-->
+							<!--<i class="iconfont">&#xe6a7;</i>-->
+							<!--<cite>系统管理</cite>-->
 
-						</a>
-					</li>
-
-
-				</ul>
-			<!--</li>-->
+						<!--</a>-->
+					<!--</li>-->
 
 
+				<!--</ul>-->
+			<!--&lt;!&ndash;</li>&ndash;&gt;-->
 
 
+
+
+		<!--</ul>-->
+
+		<ul class="layui-nav layui-nav-tree" lay-filter="test" id="nav">
+			<!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
+			<li class="layui-nav-item layui-nav-itemed">
+				<a href="javascript:;">内容管理</a>
+				<dl class="layui-nav-child">
+					<dd><a _href="/page/readRecord"><cite>悦读记录</cite></a></dd>
+					<dd><a _href="/page/readLabel"><cite>标签管理<cite></a></dd>
+					<dd><a _href="/page/article"><cite>专栏文章<cite></a></dd>
+				</dl>
+			</li>
+			<li class="layui-nav-item">
+				<a href="javascript:;">用户管理</a>
+				<dl class="layui-nav-child">
+					<dd><a _href="/page/userInfo"><cite>用户列表</cite></a></dd>
+					<dd><a _href="/page/readLabel"><cite>标签管理<cite></a></dd>
+					<dd><a _href="/page/article"><cite>专栏文章<cite></a></dd>
+				</dl>
+			</li>
+			<li class="layui-nav-item"><a href="">产品</a></li>
+			<li class="layui-nav-item"><a href="">大数据</a></li>
 		</ul>
-
 
 	</div>
 </div>

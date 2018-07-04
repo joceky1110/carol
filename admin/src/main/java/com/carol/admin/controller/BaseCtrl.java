@@ -75,8 +75,8 @@ public abstract class BaseCtrl<T>{
                 BeanUtils.copyProperties(t, ot,getNullPropertyNames(t));//将新对象信息覆盖到原数据中 null值忽略 不覆盖
                 service.update(ot);
                 j.setMsg("更新成功");
-                j.setSuccess(true);
-                j.setObj(t);
+                j.setSuccess();
+                j.setData(t);
             } catch (Exception e) {
                 j.setMsg("更新失败！");
                 e.printStackTrace();
@@ -92,7 +92,7 @@ public abstract class BaseCtrl<T>{
         try {
             service.delete(service.get(filter));
             j.setMsg("删除成功");
-            j.setSuccess(true);
+            j.setSuccess();
         } catch (Exception e) {
             j.setMsg("删除失败");
         }

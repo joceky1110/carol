@@ -10,7 +10,7 @@ public class JsonResult {
 	/**
 	 * 返回是否成功
 	 */
-	private Boolean success = true;
+	private Integer code;
 	/**
 	 * 返回消息
 	 */
@@ -18,14 +18,10 @@ public class JsonResult {
 	/**
 	 * 其他对象
 	 */
-	private Object obj = null;// 返回其他对象信息
+	private Object data = null;// 返回其他对象信息
 
-	public Boolean getSuccess() {
-		return success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setSuccess() {
+		this.code = 0;
 	}
 
 	public String getMsg() {
@@ -36,12 +32,19 @@ public class JsonResult {
 		this.msg = msg;
 	}
 
-	public Object getObj() {
-		return obj;
+	public Object getData() {
+		return data;
 	}
 
-	public void setObj(Object obj) {
-		this.obj = obj;
+	public void setData(Object data) {
+		this.data = data;
 	}
 
+	public Integer getCode() {
+		return code;
+	}
+
+	public void setCode(Integer code) {
+		this.code = code;
+	}
 }

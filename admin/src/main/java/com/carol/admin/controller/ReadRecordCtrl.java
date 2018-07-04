@@ -5,8 +5,12 @@ import com.carol.admin.base.PageTable;
 import com.carol.admin.base.QueryFilter;
 import com.carol.admin.service.BaseService;
 import com.carol.admin.service.UserInfoService;
+import com.carol.model.ReadComment;
 import com.carol.model.ReadRecord;
 import com.carol.model.UserInfo;
+import com.carol.vo.ReadCommentVo;
+import com.carol.vo.ReadRecordVo;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +20,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 悦读记录表控制层
@@ -63,9 +69,22 @@ public class ReadRecordCtrl extends BaseCtrl<ReadRecord>{
      */
     @RequestMapping("/data/readRecord/list")
     @ResponseBody
-    public PageTable findAll(HttpServletRequest request ) {
+    public PageTable list(HttpServletRequest request ) {
         QueryFilter filter = new QueryFilter(request);
-        return super.find(filter);
+        PageTable pageTable = super.find(filter);
+
+        List<ReadRecord> data = pageTable.getData();
+        List<ReadRecordVo> voList = new ArrayList<>();
+        for(ReadRecord record:data){
+            ReadRecordVo vo = new ReadRecordVo();
+            BeanUtils.copyProperties(record,vo);
+            //追加用户头像
+            Object obj = userInfoService.get(vo.getUserId());
+            vo.setUserImg(((UserInfo)obj).getImg());
+            voList.add(vo);
+        }
+        pageTable.setData(voList);
+        return pageTable;
     }
 
     /**
